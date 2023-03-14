@@ -4,23 +4,24 @@ import Card from '../UI/card.jsx'
 import ExpenseItem from './ExpenseItem.jsx'
 import './expenses.css'
 import ExpensesFilter from './ExpensesFilter.jsx'
-
-const [storeFilterValue,setStoreFilterValue] = useState()
+import ExpenseList from './ExpenseList.jsx'
 
 function Expenses({expenses}){
-  const passFilterValue = function(val){
-    setStoreFilterValue(val)
+  const [filterValue,setFilterValue] = useState('');
+  const updateFilterValue = function(val){
+    setFilterValue(val)
   }
+  const filteredExpenses = expenses.length > 0 && expenses.filter(expense => expense.date.getFullYear() === Number(filterValue))
+
+
 return (   
   <Card className='expenses'>
-        <ExpensesFilter passFilterValue={passFilterValue}/>
-        {
-            expenses.map(expense =>(
-                <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}/>
-            ))
-        }
-      </Card>)
+        <ExpensesFilter selected={filterValue} updateFilterValue={updateFilterValue}/>
+        <ExpenseList items ={filteredExpenses}/>
+      </Card>
+      )
 
 }
 
 export default Expenses
+
