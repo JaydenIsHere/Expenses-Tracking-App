@@ -9,6 +9,14 @@
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
   }
   
+  .new-expense__control__btn{
+    display: flex;
+    justify-content: center;
+    
+  }
+  .addNewBtn{
+    margin: 0 auto;
+  }
   .new-expense button {
     font: inherit;
     cursor: pointer;
@@ -18,6 +26,7 @@
     color: white;
     border-radius: 12px;
     margin-right: 1rem;
+    width:50%;
   }
   
   .new-expense button:hover,

@@ -8,8 +8,10 @@ function ExpenseItem (props){
     const changeTitle = function(){
     alert("updated")//pass the value that you want to update
     } 
+ 
    
     return(
+
         <li>
         <Card className="expense-item">
         <ExpenseDate date={props.date}/>

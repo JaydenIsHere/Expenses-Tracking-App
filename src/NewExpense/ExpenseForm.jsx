@@ -19,7 +19,9 @@ const [expenseDate,setExpenseDate] = useState('')
 // const getTitleInputValue = function(event){
 //         return {...expenseInput,title: event.target.value}
 //    }
-
+const cancelBtn = () =>{
+        props.onToggleExpandingButton()
+}
 const getTitleInputValue = function(event){
 setExpenseTitle(event.target.value)
 }
@@ -48,9 +50,6 @@ setExpenseDate('');
    return  (
    <form className="new-expense" onSubmit={createNewExpense}>
 <div className='new-expense__controls'>
-
-
-
     <div className="new-expense__control">
             <label>Title</label>
             <input type="text" value={expenseTitle} onChange={getTitleInputValue} />
@@ -65,12 +64,13 @@ setExpenseDate('');
             <label>Date</label>
             <input type="date" value={expenseDate} onChange={getDateInputValue} min="2019-01-01" max="2023-01-31"/>
     </div> 
+</div>
 
-    <div className='new-expense__actions'>
+    <div className='new-expense__control__btn'>
+    <button onClick ={cancelBtn} className="new-expense button">Cancel</button>
     <button className="new-expense button">Create New</button>
     </div>
 
-</div>
         </form>)
 
 };
